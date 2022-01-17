@@ -14,13 +14,7 @@ namespace WebServiceApp
        public IActionResult Reverse(string data)
        {
            var s = data.ToCharArray();
-           
-           var n = s.Length;
-           
-           for (var i = 0; i < n / 2; i++) {
-               (s[i], s[n - i - 1]) = (s[n - i - 1], s[i]);
-           }
-           
+           Array.Reverse(s);
            var result = new string(s);
            return new JsonResult(new {result});
        }
